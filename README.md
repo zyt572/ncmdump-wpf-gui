@@ -1,6 +1,7 @@
 ﻿# NCM 转换台
 
 ps:给ncmdump套了个壳子，代码由deepseek v4.1 flash完成，我只负责提点子，如果有技术上的问题，我无法回答。
+
 给 [`ncmdump`](https://github.com/taurusxin/ncmdump) 做的 Windows 桌面界面：把网易云音乐下载的 `.ncm`
 加密文件解密成普通 MP3 / FLAC，保留歌曲信息与封面。原生 WPF 窗口、原生拖放，全程本机处理。
 
