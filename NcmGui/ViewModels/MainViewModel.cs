@@ -157,7 +157,8 @@ public sealed class MainViewModel : INotifyPropertyChanged
         if (!ConversionEngine.Locate())
         {
             EngineReady = false;
-            Log("找不到 ncmdump.exe，请把它放回程序所在目录", LogKind.Err);
+            Log("找不到 ncmdump.exe：请把它放到本程序同目录，然后重新启动", LogKind.Err);
+            RequestShowLog?.Invoke();
             return;
         }
         _version = await ConversionEngine.ReadVersionAsync();
