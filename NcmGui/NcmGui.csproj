@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>NcmGui</AssemblyName>
+    <RootNamespace>NcmGui</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <Product>NCM 转换台</Product>
+    <AssemblyTitle>NCM 转换台</AssemblyTitle>
+    <SatelliteResourceLanguages>zh-Hans</SatelliteResourceLanguages>
+  </PropertyGroup>
+
+  <!--
+    ncmdump.exe / libncmdump.dll 不随仓库分发：本地有就复制（方便调试）并嵌入单文件发布，
+    没有也能正常编译，运行时从 exe 同目录读取。
+  -->
+  <ItemGroup Condition="Exists('..\ncmdump.exe')">
+    <None Include="..\ncmdump.exe" Link="ncmdump.exe" CopyToOutputDirectory="PreserveNewest" />
+    <EmbeddedResource Include="..\ncmdump.exe" LogicalName="NcmGui.Resources.ncmdump.exe" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('..\libncmdump.dll')">
+    <None Include="..\libncmdump.dll" Link="libncmdump.dll" CopyToOutputDirectory="PreserveNewest" />
+    <EmbeddedResource Include="..\libncmdump.dll" LogicalName="NcmGui.Resources.libncmdump.dll" />
+  </ItemGroup>
+
+</Project>
