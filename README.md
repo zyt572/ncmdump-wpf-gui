@@ -1,4 +1,4 @@
-# NCM 转换台
+﻿# NCM 转换台
 
 给 [`ncmdump`](https://github.com/taurusxin/ncmdump) 做的 Windows 桌面界面：把网易云音乐下载的 `.ncm`
 加密文件解密成普通 MP3 / FLAC，保留歌曲信息与封面。原生 WPF 窗口、原生拖放，全程本机处理。
@@ -21,11 +21,11 @@
 
 ## 运行
 
-```
-dist\NcmGui.exe
-```
+先按下方「构建」生成 `dist\`，然后双击 `dist\NcmGui.exe`；开发时也可以
+`dotnet run --project NcmGui\NcmGui.csproj`。
 
 需要 Windows 10/11 x64。程序是 .NET 9 自包含发布，目标机器不需要安装 .NET 运行时。
+运行时请把 `ncmdump.exe` 放在 `NcmGui.exe` 同目录（见上一节）。
 
 ## 功能
 
